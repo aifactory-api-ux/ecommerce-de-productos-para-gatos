@@ -14,6 +14,19 @@ describe('OrdersService', () => {
     image: 'image.jpg',
   };
 
+  const mockAddress = {
+    id: 'addr-123',
+    userId: 'user-123',
+    fullName: 'Test',
+    addressLine1: '123 St',
+    addressLine2: '',
+    city: 'NYC',
+    state: 'NY',
+    postalCode: '10001',
+    country: 'US',
+    phone: '1234567890',
+  };
+
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [OrdersService],
@@ -29,7 +42,7 @@ describe('OrdersService', () => {
         { addressId: 'addr-123', paymentMethodId: 'pm-123' },
         [mockOrderItem],
         199.99,
-        { fullName: 'Test', addressLine1: '123 St', city: 'NYC', state: 'NY', postalCode: '10001', country: 'US', phone: '1234567890' },
+        mockAddress,
         'pi-123',
       );
 
@@ -46,7 +59,7 @@ describe('OrdersService', () => {
         { addressId: 'addr-123', paymentMethodId: 'pm-123' },
         [mockOrderItem],
         199.99,
-        { fullName: 'Test', addressLine1: '123 St', city: 'NYC', state: 'NY', postalCode: '10001', country: 'US', phone: '1234567890' },
+        mockAddress,
         'pi-123',
       );
 
@@ -68,7 +81,7 @@ describe('OrdersService', () => {
         { addressId: 'addr-123', paymentMethodId: 'pm-123' },
         [mockOrderItem],
         199.99,
-        { fullName: 'Test', addressLine1: '123 St', city: 'NYC', state: 'NY', postalCode: '10001', country: 'US', phone: '1234567890' },
+        mockAddress,
         'pi-123',
       );
 
@@ -89,7 +102,7 @@ describe('OrdersService', () => {
         { addressId: 'addr-123', paymentMethodId: 'pm-123' },
         [mockOrderItem],
         199.99,
-        { fullName: 'Test', addressLine1: '123 St', city: 'NYC', state: 'NY', postalCode: '10001', country: 'US', phone: '1234567890' },
+        mockAddress,
         'pi-123',
       );
 
@@ -106,7 +119,7 @@ describe('OrdersService', () => {
         { addressId: 'addr-123', paymentMethodId: 'pm-123' },
         [mockOrderItem],
         199.99,
-        { fullName: 'Test', addressLine1: '123 St', city: 'NYC', state: 'NY', postalCode: '10001', country: 'US', phone: '1234567890' },
+        mockAddress,
         'pi-123',
       );
 
