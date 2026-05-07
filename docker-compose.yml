@@ -20,7 +20,7 @@ services:
   redis:
     image: redis:7-alpine
     ports:
-      - "6379:6379"
+      - "6380:6379"
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
@@ -32,14 +32,14 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "3002:3000"
     environment:
       NODE_ENV: production
       DATABASE_URL: postgres://postgres:postgres@postgres:5432/catshop
       REDIS_URL: redis://redis:6379
       JWT_SECRET: supersecretjwtkey
       STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
-      FRONTEND_URL: http://localhost:3001
+      FRONTEND_URL: http://localhost:3003
       PORT: 3000
     depends_on:
       postgres:
@@ -57,9 +57,9 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "3001:3001"
+      - "3003:3001"
     environment:
-      NEXT_PUBLIC_API_URL: http://localhost:3000
+      NEXT_PUBLIC_API_URL: http://localhost:3002
     depends_on:
       backend:
         condition: service_healthy
