@@ -62,7 +62,7 @@ services:
       NEXT_PUBLIC_API_URL: http://localhost:3002
     depends_on:
       backend:
-        condition: service_healthy
+        condition: service_started
 
 volumes:
   postgres_data:
