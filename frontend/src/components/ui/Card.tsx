@@ -5,15 +5,17 @@ interface CardProps {
   variant?: 'product' | 'category' | 'order';
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-export const Card: React.FC<CardProps> = ({ variant = 'product', children, className }) => {
+export const Card: React.FC<CardProps> = ({ variant = 'product', children, className, style }) => {
   const baseStyles: React.CSSProperties = {
     backgroundColor: tokens.colors.surface,
     borderRadius: tokens.radii.lg,
     boxShadow: tokens.shadows.sm,
     overflow: 'hidden',
     transition: tokens.motion,
+    ...style,
   };
 
   return (
