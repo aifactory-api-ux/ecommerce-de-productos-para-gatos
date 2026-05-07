@@ -9,6 +9,7 @@ interface ButtonProps {
   loading?: boolean;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
+  style?: React.CSSProperties;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -19,6 +20,7 @@ export const Button: React.FC<ButtonProps> = ({
   loading = false,
   onClick,
   type = 'button',
+  style,
 }) => {
   const baseStyles: React.CSSProperties = {
     fontFamily: tokens.typography.font_family,
@@ -68,7 +70,7 @@ export const Button: React.FC<ButtonProps> = ({
       type={type}
       onClick={onClick}
       disabled={disabled || loading}
-      style={{ ...baseStyles, ...sizeStyles[size], ...variantStyles[variant] }}
+      style={{ ...baseStyles, ...sizeStyles[size], ...variantStyles[variant], ...style }}
     >
       {loading ? 'Loading...' : children}
     </button>
