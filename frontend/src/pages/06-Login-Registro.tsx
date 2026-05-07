@@ -10,11 +10,11 @@ export default function LoginRegistroPage() {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
   const [registerData, setRegisterData] = useState({ email: '', password: '', name: '' });
 
-  const handleLoginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleLoginChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
 
-  const handleRegisterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleRegisterChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setRegisterData({ ...registerData, [e.target.name]: e.target.value });
   };
 
