@@ -3,6 +3,7 @@ import { tokens } from '../../styles/tokens';
 
 interface InputProps {
   type: 'text' | 'email' | 'password' | 'search' | 'textarea' | 'select';
+  name?: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
   placeholder?: string;
@@ -15,6 +16,7 @@ interface InputProps {
 
 export const Input: React.FC<InputProps> = ({
   type,
+  name,
   value,
   onChange,
   placeholder,
@@ -88,6 +90,7 @@ export const Input: React.FC<InputProps> = ({
       {label && <label style={labelStyles}>{label}{required && ' *'}</label>}
       <input
         type={type}
+        name={name}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
