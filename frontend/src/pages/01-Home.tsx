@@ -32,9 +32,9 @@ export default function HomePage() {
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: tokens.colors.background }}>
-      <header style={{ backgroundColor: tokens.colors.surface, padding: `${tokens.spacing.md} ${tokens.spacing.lg}`, boxShadow: tokens.shadows.sm }}>
+      <header style={{ backgroundColor: tokens.colors.surface, padding: tokens.spacing.md + ' ' + tokens.spacing.lg, boxShadow: tokens.shadows.sm }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ fontSize: 24, fontWeight: 700, color: tokens.colors.primary }}>🐱 CatShop</div>
+          <div style={{ fontSize: 24, fontWeight: 700, color: tokens.colors.primary }}>CatShop</div>
           <nav style={{ display: 'flex', gap: tokens.spacing.lg }}>
             <a href="/" style={{ color: tokens.colors.text_primary, textDecoration: 'none' }}>Home</a>
             <a href="/catalogo" style={{ color: tokens.colors.text_primary, textDecoration: 'none' }}>Catalog</a>
@@ -43,7 +43,6 @@ export default function HomePage() {
           </nav>
         </div>
       </header>
-
       <main style={{ maxWidth: 1200, margin: '0 auto', padding: tokens.spacing.lg }}>
         <section style={{ marginBottom: tokens.spacing.xxl }}>
           <h1 style={{ fontSize: tokens.typography.headings.h1.size, fontWeight: tokens.typography.headings.h1.weight, color: tokens.colors.text_primary, marginBottom: tokens.spacing.md }}>
@@ -53,7 +52,6 @@ export default function HomePage() {
             Find the best products for your feline friends
           </p>
         </section>
-
         <section>
           <h2 style={{ fontSize: tokens.typography.headings.h2.size, marginBottom: tokens.spacing.lg }}>Featured Products</h2>
           {loading ? (
@@ -72,16 +70,11 @@ export default function HomePage() {
                       )}
                     </div>
                     <CardTitle>{product.name}</CardTitle>
-                    <p style={{ color: tokens.colors.text_secondary, fontSize: 12, margin: `${tokens.spacing.xs} 0` }}>
-                      ★ {product.rating}
+                    <p style={{ color: tokens.colors.text_secondary, fontSize: 12, margin: tokens.spacing.xs + ' 0' }}>
+                      {product.rating} stars
                     </p>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.sm', marginTop: tokens.spacing.sm }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.sm, marginTop: tokens.spacing.sm }}>
                       <CardPrice>${product.price.toFixed(2)}</CardPrice>
-                      {product.discount > 0 && (
-                        <span style={{ textDecoration: 'line-through', color: tokens.colors.text_secondary, fontSize: 12 }}>
-                          ${(product.price / (1 - product.discount / 100)).toFixed(2)}
-                        </span>
-                      )}
                     </div>
                     <Button variant="primary" size="md" style={{ width: '100%', marginTop: tokens.spacing.md }}>
                       Add to Cart
