@@ -1,0 +1,27 @@
+import { IsString, IsNumber, Min } from 'class-validator';
+import { Type } from 'class-transformer';
+
+export class CartItemDto {
+  @IsString()
+  productId: string;
+
+  @IsNumber()
+  @Min(1)
+  @Type(() => Number)
+  quantity: number;
+}
+
+export class AddToCartDto {
+  @IsString()
+  productId: string;
+
+  @IsNumber()
+  @Min(1)
+  @Type(() => Number)
+  quantity: number;
+}
+
+export class RemoveFromCartDto {
+  @IsString()
+  productId: string;
+}

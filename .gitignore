@@ -1,0 +1,26 @@
+# Environment
+node_modules/
+dist/
+.env
+*.log
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+.next/
+out/
+build/
+
+# Testing
+coverage/
+
+# Misc
+.DS_Store
+*.pem
+
+# IDE
+.idea/
+.vscode/
